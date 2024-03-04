@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Banking System</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(1, 7, 9);
+    color: #edd60a;
+}
+
+h1 {
+    font-style: italic;
+    background-color: #0a0a09;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+   
+    <div id="homePage" class="page active">
+        <h1>Welcome to Simple Banking System</h1>
+        <button onclick="showPage('viewCustomersPage')">View All Customers</button>
+    </div>
+
+ 
+    <div id="viewCustomersPage" class="page">
+        <h2>All Customers</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Current Balance</th>
+                <th>Action</th>
+            </tr>
+            
+            <tr>
+                <td>Gunal</td>
+                <td>gunal@gmail.com</td>
+                <td>500</td>
+                <td><button onclick="showPage('transferMoneyPage')">Transfer Money</button></td>
+            </tr>
+
+            <tr>
+                <td>Harinath</td>
+                <td>harinath@gmail.com</td>
+                <td>700</td>
+                <td><button onclick="showPage('transferMoneyPage')">Transfer Money</button></td>
+            </tr>
+
+            <tr>
+                <td>Nantha</td>
+                <td>topper@gmail.com</td>
+                <td>800</td>
+                <td><button onclick="showPage('transferMoneyPage')">Transfer Money</button></td>
+            </tr>
+
+            <tr>
+                <td>Paul fraics</td>
+                <td>paul12@gmail.com</td>
+                <td>670</td>
+                <td><button onclick="showPage('transferMoneyPage')">Transfer Money</button></td>
+            </tr>
+            <tr>
+                <td>Surendhar</td>
+                <td>Surendhar@gmail.com</td>
+                <td>900</td>
+                <td><button onclick="showPage('transferMoneyPage')">Transfer Money</button></td>
+            </tr>
+            <tr>
+                <td>Barani</td>
+                <td>barani@gmail.com</td>
+                <td>600</td>
+                <td><button onclick="showPage('transferMoneyPage')">Transfer Money</button></td>
+            </tr>
+
+            <tr>
+                <td>Kabilan</td>
+                <td>kabi13@gmail.com</td>
+                <td>400</td>
+                <td><button onclick="showPage('transferMoneyPage')">Transfer Money</button></td>
+            </tr>
+
+            <tr>
+                <td>Vengadesh</td>
+                <td>venkey@gmail.com</td>
+                <td>900</td>
+                <td><button onclick="showPage('transferMoneyPage')">Transfer Money</button></td>
+            </tr>
+            <tr>
+                <td>Aadi</td>
+                <td>aadi@gmail.com</td>
+                <td>300</td>
+                <td><button onclick="showPage('transferMoneyPage')">Transfer Money</button></td>
+            </tr>
+            <tr>
+                <td>Sanjay</td>
+                <td>sassi@gmail.com</td>
+                <td>500</td>
+                <td><button onclick="showPage('transferMoneyPage')">Transfer Money</button></td>
+            </tr>
+           
+        </table>
+        <button onclick="showPage('homePage')">Back</button>
+    </div>
+
+    
+    <div id="transferMoneyPage" class="page">
+        <h2>Transfer Money</h2>
+        <form onsubmit="return false;">
+            <label for="amount">Enter amount:</label>
+            <input type="number" id="amount" min="1" required><br><br>
+            <button onclick="showPage('successPage')">Transfer</button>
+            <button onclick="showPage('viewCustomersPage')">Cancel</button>
+        </form>
+    </div>
+
+    
+    <div id="successPage" class="page">
+        <h2>Transfer Successful!</h2>
+        <button onclick="showPage('homePage')">Back to Home</button>
+    </div>
+</div>
+
+<script>
+// JavaScript for toggling pages
+function showPage(pageId) {
+    var pages = document.querySelectorAll('.page');
+    for (var i = 0; i < pages.length; i++) {
+        if (pages[i].id === pageId) {
+            pages[i].classList.add('active');
+        } else {
+            pages[i].classList.remove('active');
+        }
+    }
+}
+</script>
+
+</body>
+</html>
